@@ -1,0 +1,44 @@
+{
+  "$comment": "GET /v1/pages/{page_id}/markdown from Notion's 2026-03-11 reference. This endpoint returns the page's content as Notion-flavored Markdown in one response, rather than requiring callers to recursively traverse the deeply nested block tree.",
+  "operation": "page_markdown_get",
+  "kind": "page",
+  "title": "Notion page Markdown",
+  "description": "Retrieve a Notion page's content as enhanced Markdown.",
+  "summary": "retrieve page Markdown",
+  "docs": "https://developers.notion.com/reference/retrieve-page-markdown",
+  "sideEffects": "none",
+  "$sideEffectsComment": "This is a read-only GET. Replaying it does not alter the page, and no idempotency key applies.",
+  "request": { "method": "GET", "path": "/v1/pages/{pageId}/markdown" },
+  "config": [
+    {
+      "type": "text",
+      "key": "pageId",
+      "label": "Page ID",
+      "required": true,
+      "description": "The Notion page UUID, with or without hyphens. The connection must have Read content capability and access to this page.",
+      "send": { "in": "path", "as": "pageId", "value": "string" }
+    },
+    {
+      "type": "switch",
+      "key": "includeTranscript",
+      "label": "Include transcript",
+      "default": false,
+      "description": "Include meeting-note transcripts when the connection and caller are permitted to read them.",
+      "send": { "in": "query", "as": "include_transcript", "value": "boolean", "default": false },
+      "$comment": "The wire name is include_transcript even though generated package config uses includeTranscript. It defaults false because transcripts can contain substantially more sensitive content than the page body."
+    }
+  ],
+  "outputShape": [
+    { "path": "data.object", "type": "string", "description": "The literal response object type, page_markdown." },
+    { "path": "data.id", "type": "string", "description": "The page UUID." },
+    { "path": "data.markdown", "type": "string", "description": "The page content in Notion enhanced Markdown." },
+    { "path": "data.truncated", "type": "boolean", "description": "Whether the returned Markdown was truncated." },
+    { "path": "data.unknown_block_ids", "type": "array", "description": "Block ids whose types could not be represented in Markdown." }
+  ],
+  "$outputComment": "Notion returns the page_markdown object directly at the response top level, not under data, result or page. The connector runtime exposes that body under data.",
+  "contract": {
+    "$comment": "The path and query inputs sent and the complete documented top-level response fields read. Declaring both sides keeps drift checking explicit even though Notion publishes no machine-readable spec.",
+    "sends": ["pageId", "include_transcript"],
+    "reads": ["object", "id", "markdown", "truncated", "unknown_block_ids"]
+  }
+}

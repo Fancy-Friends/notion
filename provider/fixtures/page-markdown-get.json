@@ -1,0 +1,11 @@
+{
+  "$comment": "Notion returns the page_markdown object directly. This reproduces the official response shape, including truncation and the list of block ids the Markdown serializer could not represent.",
+  "operation": "page_markdown_get",
+  "response": {
+    "object": "page_markdown",
+    "id": { "$fake": "uuid" },
+    "markdown": "# Meeting Notes\n\nDiscussed roadmap priorities.\n\n## Action items\n\n- [ ] Draft proposal\n- [ ] Schedule follow-up",
+    "truncated": false,
+    "unknown_block_ids": []
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$comment": "THE hand-written part. Four packages are generated from this directory and are never edited. Notion publishes a current first-party REST reference but no downloadable machine-readable specification, so the definition stays anchored to its versioned documentation rather than a community OpenAPI file.",
+  "connectorApi": 1,
+  "service": "notion",
+  "title": "Notion",
+  "domain": "productivity",
+  "docs": "https://developers.notion.com/reference/intro",
+  "auth": "oauth2",
+  "requires": ["accessToken"],
+  "authorize": { "kind": "bearer", "credential": "accessToken" },
+  "oauth": {
+    "flow": "authorization_code",
+    "authorizeUrl": "https://api.notion.com/v1/oauth/authorize",
+    "tokenUrl": "https://api.notion.com/v1/oauth/token",
+    "scopes": null,
+    "capabilities": ["Read content"],
+    "$capabilitiesComment": "Notion's authorization URL has no scope parameter. Read content is selected as a connection capability in the Developer portal and appears on the consent prompt; inventing an OAuth scope string would produce a request Notion does not document.",
+    "accessTokenCredential": "accessToken",
+    "refreshTokenCredential": "refreshToken",
+    "refreshTokenRotates": true,
+    "$refreshTokenRotates": "Notion's refresh-token reference says a successful refresh returns both a new access token and a new refresh token. The host must replace the stored pair atomically and must not refresh concurrently or replay the submitted token after an ambiguous failure.",
+    "accessTokenTtlSeconds": null,
+    "$accessTokenTtlSeconds": "Notion's current create-token and refresh-token response schemas do not expose expires_in or state a fixed access-token lifetime. Null is the considered answer; a numeric schedule would be invented."
+  },
+  "headers": { "Notion-Version": "2026-03-11" },
+  "$headersComment": "Every REST request must carry Notion-Version. 2026-03-11 is the current version in Notion's reference; omitting it opts into an old default and can change page, database and data-source shapes.",
+  "sandbox": "separate-account",
+  "$sandboxComment": "Notion asks public-connection authors to choose a development workspace. It uses the same api.notion.com host, so the OAuth installation and selected workspace isolate test pages rather than a separate API endpoint.",
+  "sandboxNote": "Install the public connection into a dedicated Notion development workspace and grant it only test pages. Calls use the live API and create or read real content inside that workspace.",
+  "baseUrls": { "live": "https://api.notion.com", "sandbox": "https://api.notion.com" },
+  "encoding": "json",
+  "credentialFields": [
+    { "key": "clientId", "label": "OAuth client ID", "scope": "provider", "secret": false, "help": "The public connection's OAuth client ID from its Configuration tab." },
+    { "key": "clientSecret", "label": "OAuth client secret", "scope": "provider", "secret": true, "help": "The matching secret used by the host for code exchange and token refresh." },
+    { "key": "accessToken", "label": "Access token", "scope": "account", "secret": true, "help": "The bearer token for one user's installation in one Notion workspace." },
+    { "key": "refreshToken", "label": "Refresh token", "scope": "account", "secret": true, "help": "The rotating refresh token. Replace it atomically with the new value returned by every refresh." }
+  ]
+}
