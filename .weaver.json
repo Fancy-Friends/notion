@@ -48,7 +48,7 @@
     "packages/py/pyproject.toml": "c6de197a20bd0b43559db9ceaac24991458b3ea2ff87c96b57e6abafe27e02eb",
     "packages/py/src/fancy_notion/__init__.py": "f411d13bd4a940535f7e3084db5494962f24787b1a8ab90c0a9121b88f17f23c",
     "packages/py/src/fancy_notion/_fake.py": "9740bcdc904687e379f5451ccd3ec6688308b2105db1c751a50bcc5ac216c00f",
-    "packages/py/src/fancy_notion/_runtime.py": "17598bf9eefce6c6c9cc01639679198d1a062d8b3a60226956da884300302172",
+    "packages/py/src/fancy_notion/_runtime.py": "aaa6ecf40432810d5407efcc2181df3f8eddc2f098476ae7c82f4d787efec1b7",
     "packages/py/src/fancy_notion/actions/__init__.py": "15a803e581da172f5ba2365e53a7adc6dfd03c0ec0eb6c5e51801eab4ad54837",
     "packages/py/src/fancy_notion/actions/page_markdown_get.py": "34dd0bb8a821b458f7c422137d1fd9f87b95a90365d33a217379bd7acd19c5c4",
     "packages/py/src/fancy_notion/faker.py": "074ce875b0fcafad9e1f62b676e91b8f8d9b676ac8e60cc4450884c1a5690881",
