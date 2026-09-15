@@ -30,6 +30,12 @@ it('page_markdown_get fakes the shape Notion publishes', function () {
 
     $faked = NotionFaker::respond('page_markdown_get', ['config' => $config, 'fake' => $fake]);
 
+    // Through JSON and back, because a faked EMPTY object is a stdClass — the only
+    // PHP value that spells `{}` on the wire — and `toBe` compares objects by
+    // identity. This asserts the VALUES; the `{}`-versus-`[]` spelling is what
+    // weaver's cross-runtime parity suite asserts, byte for byte.
+    $faked = json_decode((string) json_encode($faked), true, 512, JSON_THROW_ON_ERROR);
+
     expect($faked)->toBe([
         'object' => 'page_markdown',
         'id' => '3d7f940f-303c-0dc4-6ba0-886fba9c98bc',

@@ -48,7 +48,7 @@ final class NotionFaker
     }
 
     /** @param array<string,mixed> $config */
-    private static function PageMarkdownGet(array $config, mixed $fake): array
+    private static function PageMarkdownGet(array $config, mixed $fake): array|\stdClass
     {
         return [
         'object' => 'page_markdown',
