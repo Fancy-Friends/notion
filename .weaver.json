@@ -51,7 +51,7 @@
     "packages/py/src/fancy_notion/_runtime.py": "aaa6ecf40432810d5407efcc2181df3f8eddc2f098476ae7c82f4d787efec1b7",
     "packages/py/src/fancy_notion/actions/__init__.py": "15a803e581da172f5ba2365e53a7adc6dfd03c0ec0eb6c5e51801eab4ad54837",
     "packages/py/src/fancy_notion/actions/page_markdown_get.py": "34dd0bb8a821b458f7c422137d1fd9f87b95a90365d33a217379bd7acd19c5c4",
-    "packages/py/src/fancy_notion/faker.py": "074ce875b0fcafad9e1f62b676e91b8f8d9b676ac8e60cc4450884c1a5690881",
+    "packages/py/src/fancy_notion/faker.py": "2c1376f69afb5ba536f757e36340b5bb86d4a17e1b7d063a78a0462c58e1bf54",
     "packages/py/src/fancy_notion/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "packages/py/src/fancy_notion/service.py": "4f92ad57fdbe7e2eaa857c6392957c026d12b4fa48fcc8fc6e410eac35b9bd0e",
     "packages/py/tests/test_faker.py": "705b488fce46c2941e180fb99d9dfea8750783e4582d4d2951b834f50fb2f19b",
