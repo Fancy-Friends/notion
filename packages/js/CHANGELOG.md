@@ -3,6 +3,22 @@
 All notable changes to `@particle-academy/notion-ui`,
 `@particle-academy/notion-js`, `particle-academy/notion-php` and `fancy-notion`.
 
+## [0.2.1] — 2026-11-08
+
+### Fixed
+
+- **The Laravel config's environment variable names now split camelCase**,
+  as documented. **Consumer action: none.** The old unsplit names are still
+  read as a fallback, so an app that set them keeps working; the new names
+  are preferred.
+
+  | Preferred | Still read |
+  |---|---|
+  | `NOTION_CLIENT_ID` | `NOTION_CLIENTID` |
+  | `NOTION_CLIENT_SECRET` | `NOTION_CLIENTSECRET` |
+  | `NOTION_ACCESS_TOKEN` | `NOTION_ACCESSTOKEN` |
+  | `NOTION_REFRESH_TOKEN` | `NOTION_REFRESHTOKEN` |
+
 ## [0.2.0] — 2026-11-08
 
 ### Added
