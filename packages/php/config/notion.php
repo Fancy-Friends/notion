@@ -20,12 +20,12 @@ return [
 
     'credentials' => [
         // OAuth client ID (one per installation).
-        'clientId' => env('NOTION_CLIENTID'),
+        'clientId' => env('NOTION_CLIENT_ID', env('NOTION_CLIENTID')),
         // OAuth client secret (one per installation, secret).
-        'clientSecret' => env('NOTION_CLIENTSECRET'),
+        'clientSecret' => env('NOTION_CLIENT_SECRET', env('NOTION_CLIENTSECRET')),
         // Access token (per connected account, secret).
-        'accessToken' => env('NOTION_ACCESSTOKEN'),
+        'accessToken' => env('NOTION_ACCESS_TOKEN', env('NOTION_ACCESSTOKEN')),
         // Refresh token (per connected account, secret).
-        'refreshToken' => env('NOTION_REFRESHTOKEN'),
+        'refreshToken' => env('NOTION_REFRESH_TOKEN', env('NOTION_REFRESHTOKEN')),
     ],
 ];
